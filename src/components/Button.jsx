@@ -20,8 +20,9 @@ const StyledBoton = styled.button`
 `;
 
 const Button = (props) => {
+
   return (
-    <StyledBoton type={props.type} onClick={props.fcn}>
+    <StyledBoton type={props.type} onClick={props.fcnClick}>
       {props.text}
     </StyledBoton>
   );

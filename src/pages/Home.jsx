@@ -1,17 +1,48 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Banner from "../components/Banner";
 import { GlobalContext } from "../contexts/GlobalContext";
-
+import SeccionCategoria from "../components/SeccionCategoria";
+import { getData } from "../api/api";
 const Home = () => {
+  const { state, dispatch, needUpdate, setNeedUpdate } =
+    useContext(GlobalContext);
+  const categorias = [...state.categorias];
+  const [videos, setVideos] = useState([]);
 
-  // const { state, dispatch } = useContext(GlobalContext);
-  // dispatch({ type: "AGREGAR_CATEGORIA", payload: "NewCategory" });
-  // console.log(state.categorias);
+  const HandleEvents = function (e) {
+    if (e.target.dataset.action == "delete") {
+      const id = e.target.dataset.id;
+      dispatch({ type: "DELETE_VIDEO", payload: { id: id } });
+    }
+  };
+
+  useEffect(() => {
+    if (needUpdate) {
+      getData("/videos").then((res) => {
+        setVideos(res);
+        setNeedUpdate(false);
+      });
+    }
+  }, [needUpdate]);
+
+  const secciones = categorias.map((elem, index) => {
+    const videosCat = videos.filter((video) => video.categoria == elem[0]);
+
+    return (
+      <SeccionCategoria
+        key={index}
+        nombreSeccion={elem[0]}
+        colorseccion={elem[1]}
+        videos={videosCat}
+      ></SeccionCategoria>
+    );
+  });
+
   return (
-    //insertar componente banner
-    <Banner></Banner>
-    //hacer map de las distintas categorías
-    //en categorías, hacer map de los distintos videos de las categorías
+    <div onClick={HandleEvents}>
+      <Banner></Banner>
+      {secciones}
+    </div>
   );
 };
 

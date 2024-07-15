@@ -132,7 +132,8 @@ img {
   width: inherit;
 }
 
-button {
+button,
+input {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
@@ -144,7 +145,8 @@ button {
 
 input,
 textarea,
-select {
+select,
+form {
   border: none;
   color: inherit;
   font-size: inherit;

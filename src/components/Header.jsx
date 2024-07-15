@@ -16,10 +16,12 @@ const HeaderContainer = styled.header`
 `;
 
 const Navbar = styled.nav`
-  width: 30%;
+  font-size: 0.7rem;
+  width: 50%;
   gap: 20px;
   justify-content: flex-end;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 `;
 

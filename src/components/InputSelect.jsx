@@ -24,8 +24,8 @@ const InputSelect = (props) => {
       >
         {options.map((Element, idx) => {
           return (
-            <option key={idx} value={Element}>
-              {Element}
+            <option key={idx} value={Element[0]}>
+              {Element[0]}
             </option>
           );
         })}
