@@ -3,9 +3,9 @@ import Banner from "../components/Banner";
 import { GlobalContext } from "../contexts/GlobalContext";
 import SeccionCategoria from "../components/SeccionCategoria";
 import { getData } from "../api/api";
+import Modal from "../components/Modal";
 const Home = () => {
-  const { state, dispatch, needUpdate, setNeedUpdate } =
-    useContext(GlobalContext);
+  const { state, dispatch } = useContext(GlobalContext);
   const categorias = [...state.categorias];
   const [videos, setVideos] = useState([]);
 
@@ -13,17 +13,24 @@ const Home = () => {
     if (e.target.dataset.action == "delete") {
       const id = e.target.dataset.id;
       dispatch({ type: "DELETE_VIDEO", payload: { id: id } });
+      const filtrados = videos.filter((video) => video.id !== id);
+      console.log(id);
+      console.log("videos", videos);
+      console.log(filtrados);
+      setVideos([...filtrados]);
+    }
+
+    if (e.target.dataset.action == "edit") {
+      const id = e.target.dataset.id;
+      dispatch({ type: "TOGGLE_MODAL", payload: { id: id } });
     }
   };
 
   useEffect(() => {
-    if (needUpdate) {
-      getData("/videos").then((res) => {
-        setVideos(res);
-        setNeedUpdate(false);
-      });
-    }
-  }, [needUpdate]);
+    getData("/videos").then((res) => {
+      setVideos(res);
+    });
+  }, []);
 
   const secciones = categorias.map((elem, index) => {
     const videosCat = videos.filter((video) => video.categoria == elem[0]);
@@ -42,6 +49,8 @@ const Home = () => {
     <div onClick={HandleEvents}>
       <Banner></Banner>
       {secciones}
+
+      {state.modal && <Modal></Modal>}
     </div>
   );
 };

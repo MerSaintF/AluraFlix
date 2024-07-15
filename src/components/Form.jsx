@@ -15,6 +15,7 @@ const FormInputs = styled.div`
     flex-direction: column;
   }
   .Botones {
+    gap: 10px;
     margin-top: 30px;
     flex-direction: row;
     justify-content: space-evenly;
@@ -49,9 +50,16 @@ const Form = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-        // console.log("aqui haces el post");
-          dispatch({ type: "POST_VIDEO", payload: state.formInfo });
-          dispatch({ type: "LIMPIAR_FORM" });
+          // console.log("aqui haces el post");
+
+          if (state.modal) {
+            dispatch({ type: "PUT_VIDEO" });
+            dispatch({ type: "LIMPIAR_FORM" });
+            dispatch({ type: "TOGGLE_MODAL" });
+          } else {
+            dispatch({ type: "POST_VIDEO", payload: state.formInfo });
+            dispatch({ type: "LIMPIAR_FORM" });
+          }
         }}
       >
         <InputText

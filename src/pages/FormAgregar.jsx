@@ -12,6 +12,9 @@ const FormSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h2 {
+    font-size: 2rem;
+  }
 `;
 
 const Titulo = styled.div`
