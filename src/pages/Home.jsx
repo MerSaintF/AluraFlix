@@ -5,9 +5,9 @@ import SeccionCategoria from "../components/SeccionCategoria";
 import { getData } from "../api/api";
 import Modal from "../components/Modal";
 const Home = () => {
-  const { state, dispatch } = useContext(GlobalContext);
+  const { state, dispatch, videos, setVideos } = useContext(GlobalContext);
   const categorias = [...state.categorias];
-  const [videos, setVideos] = useState([]);
+  
 
   const HandleEvents = function (e) {
     if (e.target.dataset.action == "delete") {
@@ -26,11 +26,7 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    getData("/videos").then((res) => {
-      setVideos(res);
-    });
-  }, []);
+
 
   const secciones = categorias.map((elem, index) => {
     const videosCat = videos.filter((video) => video.categoria == elem[0]);

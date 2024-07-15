@@ -1,18 +1,13 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { createContext, useState } from "react";
-import { api, deleteData, postData, putData } from "../api/api";
+import { api, deleteData, postData, putData, getData } from "../api/api";
 
 const GlobalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
-  const [needUpdate, setNeedUpdate] = useState(true);
+  //const [needUpdate, setNeedUpdate] = useState(true);
   const [modal, setModal] = useState(true);
-  // const [img, setImg] = useState("");
-  // const [video, setVideo] = useState("");
-  // const [descripcion, setDescripcion] = useState("");
-  // const [categoria, setCategoria] = useState("Back End");
-  // const [guardar, setGuardar] = useState(true);
-  // const [modificar, setModificar] = useState(false);
+  const [videos, setVideos] = useState([]);
 
   const initialState = {
     categorias: [
@@ -57,15 +52,15 @@ const GlobalContextProvider = ({ children }) => {
         };
       case "POST_VIDEO":
         postData("/videos", { ...state.formInfo, id: uuid.v4() });
-        return state;
+        return { ...state };
       case "PUT_VIDEO":
         putData(`/videos/${state.modalId}`, { ...state.formInfo });
-        return state;
+        return { ...state };
       case "DELETE_VIDEO":
         console.log(`/videos/${action.payload.id}`);
         deleteData(`/videos/${action.payload.id}`);
-        setNeedUpdate(true);
-        return state;
+        //setNeedUpdate(true);
+        return { ...state };
       case "TOGGLE_MODAL":
         return {
           ...state,
@@ -80,8 +75,16 @@ const GlobalContextProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    getData("/videos").then((res) => {
+      setVideos(res);
+    });
+  }, [state]);
+
   return (
-    <GlobalContext.Provider value={{ state, dispatch, modal, setModal }}>
+    <GlobalContext.Provider
+      value={{ state, dispatch, modal, setModal, videos, setVideos }}
+    >
       {children}
     </GlobalContext.Provider>
   );

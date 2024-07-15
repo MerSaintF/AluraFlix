@@ -2,7 +2,7 @@
   "videos": [
     {
       "id": "2dff10c6-8831-45b9-b233-c64c9b98bb53",
-      "titulo": "¿Qué son las Soft Skillsssss?",
+      "titulo": "¿Qué son las Soft Skills?",
       "img": "https://i.ytimg.com/vi/vhwspfvI52k/hqdefault.jpg",
       "video": "https://www.youtube.com/watch?v=vhwspfvI52k",
       "descripcion": "¿Qué son las Softskills y por qué es tan importante desarrollarlas para posicionarse en el mercado laboral? En este video de Alura Tips, Pri Stuani nos habla de las habilidades más buscadas por las empresas en sus profesionales y cómo las Soft Skills te ayudan en el día a día.",
@@ -31,6 +31,14 @@
       "descripcion": "En este video, la instructora Génesys Rondón nos explica como aplicar Bucles utilizando como ejemplo un calendario.",
       "categoria": "Front End",
       "id": "3a38b9e8-9684-408d-90e4-5f7c9a1015a7"
+    },
+    {
+      "titulo": "Banco de Datos MySQL",
+      "img": "https://i.ytimg.com/vi/8J0AoPZMVxA/hqdefault.jpg",
+      "video": "https://www.youtube.com/watch?v=8J0AoPZMVxA",
+      "descripcion": "¿Vamos a hablar de Base de datos con MySQL?\n\nEn esta serie de videos en alianza con Oracle, explicaremos y exploraremos las herramientas de Oracle. En este episodio recibimos a Narciso Junior, quien se desempeña como LATAM Cloud Evangelist en la empresa.",
+      "categoria": "Back End",
+      "id": "252f389b-9391-406f-85dd-8f8662091c47"
     },
     {
       "titulo": "Comunicación en el día a día",
