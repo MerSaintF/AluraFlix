@@ -1,5 +1,5 @@
 export const api = axios.create({
-  baseURL: "http://localhost:8000/", //"https://fakepi-nu.vercel.app/",
+  baseURL: "https://fakepi-nu.vercel.app/", //"https://fakepi-nu.vercel.app/",
 });
 
 export const getData = async (url) => {
