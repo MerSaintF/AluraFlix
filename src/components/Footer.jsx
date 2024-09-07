@@ -19,7 +19,7 @@ const Footer = () => {
   // console.log(dispatch);
   return (
     <FooterContainer>
-      <img src="src\assets\images\logo.svg" alt="Logo" />
+      <img src="\images\logo.svg" alt="Logo" />
     </FooterContainer>
   );
 };

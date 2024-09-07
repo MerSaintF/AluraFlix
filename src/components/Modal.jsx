@@ -26,7 +26,7 @@ const ModalStyled = styled.div`
   }
 
   .close-modal {
-    width:30px;
+    width: 30px;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -64,8 +64,8 @@ export default function Modal() {
             <h2>EDITAR VIDEO</h2>
             <Form></Form>
             <img
-            title="Cerrar"
-              src="src\assets\images\close.png"
+              title="Cerrar"
+              src="\images\close.png"
               className="close-modal"
               onClick={() => dispatch({ type: "TOGGLE_MODAL" })}
             ></img>

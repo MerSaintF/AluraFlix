@@ -44,14 +44,14 @@ const Card = (props) => {
         <img
           data-id={infoVideo.id}
           data-action="delete"
-          src="src/assets/images/delete.png"
+          src="/images/delete.png"
           title="Eliminar video"
           alt="Delete"
         ></img>
         <img
           data-id={infoVideo.id}
           data-action="edit"
-          src="src/assets/images/edit.png"
+          src="/images/edit.png"
           title="Editar video"
           alt="Edit"
         ></img>

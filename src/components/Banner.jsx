@@ -6,7 +6,7 @@ const BannerContainer = styled.div`
   align-items: center;
   background-size: cover;
   background-position: center center;
-  background-image: url("src/assets/images/banner.svg");
+  background-image: url("/images/banner.svg");
 `;
 
 const InfoBanner = styled.div`

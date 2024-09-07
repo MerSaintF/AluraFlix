@@ -47,7 +47,7 @@ const NavItem = styled(Link)`
 const Header = () => {
   return (
     <HeaderContainer>
-      <img src="src\assets\images\logo.svg" alt="Logo" />
+      <img src="\images\logo.svg" alt="Logo" />
       <Navbar>
         <NavItem to={"/"}>HOME</NavItem>
         <NavItem to={"/agregar-video"}>NUEVO</NavItem>
